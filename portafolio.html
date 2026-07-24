@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexora — Portafolio de Servicios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-blue:#2563EB;
+    --color-purple:#8B5CF6;
+    --color-navy:#0F172A;
+    --color-white:#FFFFFF;
+    --bg-navy-dark:hsl(222,47%,4%);
+    --bg-navy-card:hsla(222,47%,10%,0.85);
+    --bg-navy-light:hsl(222,47%,14%);
+    --text-primary:var(--color-white);
+    --text-secondary:hsl(217,30%,80%);
+    --text-muted:hsl(215,20%,60%);
+    --gradient-primary:linear-gradient(135deg,var(--color-blue),var(--color-purple));
+    --font-title:'Outfit',sans-serif;
+    --font-body:'Inter',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:var(--font-body);
+    background:radial-gradient(ellipse at top, hsl(230,45%,10%), var(--bg-navy-dark) 60%);
+    color:var(--text-primary);
+    padding:0 0 4rem;
+  }
+  .page{max-width:1100px;margin:0 auto;padding:0 2rem;}
+
+  /* Cover */
+  .cover{
+    padding:5rem 2rem 4rem;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .cover::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 20%, rgba(37,99,235,0.35), transparent 45%),
+               radial-gradient(circle at 75% 60%, rgba(139,92,246,0.3), transparent 50%);
+    z-index:0;
+  }
+  .cover > *{position:relative;z-index:1;}
+  .logo-row{display:flex;align-items:center;justify-content:center;gap:0.6rem;margin-bottom:2rem;}
+  .logo-symbol{
+    width:44px;height:44px;border-radius:12px;
+    background:var(--gradient-primary);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-title);font-weight:900;font-size:1.4rem;
+  }
+  .logo-text{font-family:var(--font-title);font-weight:800;font-size:1.6rem;letter-spacing:-0.02em;}
+  .tag{
+    display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--color-blue);background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.35);
+    padding:0.4rem 1rem;border-radius:999px;margin-bottom:1.2rem;
+  }
+  .cover h1{
+    font-family:var(--font-title);font-weight:900;font-size:clamp(2.2rem,5vw,3.4rem);
+    letter-spacing:-0.02em;line-height:1.05;margin-bottom:1rem;
+  }
+  .cover h1 span{background:var(--gradient-primary);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .cover p.sub{color:var(--text-secondary);max-width:640px;margin:0 auto;font-size:1.05rem;line-height:1.6;}
+
+  section{padding:3.5rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .section-tag{
+    font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--color-purple);display:block;margin-bottom:0.6rem;
+  }
+  h2.section-title{font-family:var(--font-title);font-weight:800;font-size:1.9rem;margin-bottom:0.6rem;letter-spacing:-0.01em;}
+  p.section-desc{color:var(--text-secondary);max-width:680px;line-height:1.6;margin-bottom:2rem;}
+
+  /* Identity */
+  .identity-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+  .id-card{
+    background:var(--bg-navy-card);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1.6rem;
+  }
+  .id-card h3{font-family:var(--font-title);font-size:1rem;font-weight:700;margin-bottom:0.6rem;color:var(--color-blue);}
+  .id-card p{color:var(--text-secondary);line-height:1.6;font-size:0.95rem;}
+
+  /* Audience */
+  .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+  .aud-card{
+    background:var(--bg-navy-light);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:1.4rem;
+  }
+  .aud-card .num{font-family:var(--font-title);font-weight:900;font-size:1.6rem;color:var(--color-purple);}
+  .aud-card h4{font-family:var(--font-title);font-size:1rem;margin:0.4rem 0;}
+  .aud-card p{color:var(--text-muted);font-size:0.88rem;line-height:1.5;}
+
+  /* Problems */
+  .problems-list{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
+  .problem-item{
+    display:flex;gap:0.7rem;align-items:flex-start;
+    background:var(--bg-navy-card);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:0.9rem 1.1rem;
+  }
+  .problem-item .dot{
+    width:8px;height:8px;border-radius:50%;background:var(--gradient-primary);margin-top:0.4rem;flex-shrink:0;
+  }
+  .problem-item p{font-size:0.9rem;color:var(--text-secondary);}
+
+  /* Services */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+  .svc-card{
+    background:var(--bg-navy-card);border:1px solid rgba(255,255,255,0.08);border-radius:16px;
+    padding:1.6rem;position:relative;overflow:hidden;
+  }
+  .svc-card::before{
+    content:"";position:absolute;top:-40%;right:-40%;width:150px;height:150px;border-radius:50%;
+    background:var(--gradient-primary);opacity:0.15;filter:blur(30px);
+  }
+  .svc-tech{
+    display:inline-block;font-size:0.65rem;font-weight:800;letter-spacing:0.08em;color:var(--color-purple);
+    background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);padding:0.2rem 0.6rem;border-radius:999px;margin-bottom:0.8rem;
+  }
+  .svc-card h3{font-family:var(--font-title);font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;}
+  .svc-card p{color:var(--text-secondary);font-size:0.88rem;line-height:1.55;}
+
+  /* Value proposition */
+  .value-box{
+    background:var(--gradient-primary);border-radius:20px;padding:2.4rem;text-align:center;
+  }
+  .value-box .tag{background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.3);color:#fff;}
+  .value-box blockquote{
+    font-family:var(--font-title);font-weight:700;font-size:1.35rem;line-height:1.5;max-width:760px;margin:1rem auto 0;
+  }
+  .value-box .example{margin-top:1.2rem;font-size:0.9rem;color:rgba(255,255,255,0.85);font-style:italic;}
+
+  /* Differentiators */
+  .diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+  .diff-card{text-align:center;padding:1.2rem 0.8rem;}
+  .diff-card .icon{
+    width:50px;height:50px;border-radius:14px;background:var(--gradient-primary);margin:0 auto 0.8rem;
+    display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-weight:900;
+  }
+  .diff-card h4{font-family:var(--font-title);font-size:0.95rem;margin-bottom:0.4rem;}
+  .diff-card p{color:var(--text-muted);font-size:0.82rem;line-height:1.5;}
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+  .contact-card{
+    background:var(--bg-navy-light);border:1px solid rgba(255,255,255,0.08);border-radius:14px;
+    padding:1.3rem;text-align:center;
+  }
+  .contact-card .icon{font-size:1.5rem;margin-bottom:0.5rem;}
+  .contact-card h4{font-family:var(--font-title);font-size:0.92rem;margin-bottom:0.3rem;}
+  .contact-card p{color:var(--text-muted);font-size:0.82rem;}
+
+  footer{text-align:center;padding-top:2.5rem;color:var(--text-muted);font-size:0.85rem;}
+  footer strong{color:var(--text-secondary);}
+
+  @media(max-width:800px){
+    .identity-grid,.audience-grid,.services-grid,.diff-grid,.contact-grid,.problems-list{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="cover">
+    <div class="logo-row">
+      <div class="logo-symbol">N</div>
+      <span class="logo-text">Nexora</span>
+    </div>
+    <span class="tag">Portafolio de Servicios</span>
+    <h1>Transformación digital con <span>estrategia, tecnología y datos</span></h1>
+    <p class="sub">Agencia de transformación digital que ayuda a organizaciones a modernizar procesos, adoptar tecnologías habilitadoras y tomar decisiones basadas en datos.</p>
+  </div>
+
+  <div class="page">
+
+    <!-- Identidad -->
+    <section>
+      <span class="section-tag">01 · Identidad</span>
+      <h2 class="section-title">Nombre e identidad de la agencia</h2>
+      <div class="identity-grid">
+        <div class="id-card">
+          <h3>Nexora</h3>
+          <p>Consultora digital dedicada a construir capacidades tecnológicas para alinear procesos, software y cultura operativa con el futuro. Nuestra identidad visual combina azul y púrpura sobre fondo navy, transmitiendo innovación, confianza y tecnología de vanguardia.</p>
+        </div>
+        <div class="id-card">
+          <h3>Misión</h3>
+          <p>Ayudar a las organizaciones a optimizar procesos, modernizar sistemas e integrar inteligencia artificial, rompiendo límites operativos y potenciando resultados de negocio medibles.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Público objetivo -->
+    <section>
+      <span class="section-tag">02 · Público objetivo</span>
+      <h2 class="section-title">¿A quién atendemos?</h2>
+      <p class="section-desc">Organizaciones que necesitan acelerar su madurez digital, desde pequeñas empresas hasta corporativos con operaciones complejas.</p>
+      <div class="audience-grid">
+        <div class="aud-card">
+          <div class="num">01</div>
+          <h4>PYMEs en crecimiento</h4>
+          <p>Empresas que buscan digitalizar procesos manuales y ganar presencia digital para competir en su mercado.</p>
+        </div>
+        <div class="aud-card">
+          <div class="num">02</div>
+          <h4>Empresas con datos sin explotar</h4>
+          <p>Organizaciones con información de clientes y operaciones que aún no usan para tomar decisiones.</p>
+        </div>
+        <div class="aud-card">
+          <div class="num">03</div>
+          <h4>Corporativos en transformación</h4>
+          <p>Compañías que requieren integrar IA, automatización y nube a escala, con acompañamiento cultural.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problemas -->
+    <section>
+      <span class="section-tag">03 · Diagnóstico</span>
+      <h2 class="section-title">Problemas que resolvemos</h2>
+      <p class="section-desc">Identificamos los principales frenos de transformación digital dentro de la organización.</p>
+      <div class="problems-list">
+        <div class="problem-item"><div class="dot"></div><p>Procesos manuales y lentos</p></div>
+        <div class="problem-item"><div class="dot"></div><p>Falta de presencia digital</p></div>
+        <div class="problem-item"><div class="dot"></div><p>Poco conocimiento de sus clientes</p></div>
+        <div class="problem-item"><div class="dot"></div><p>Baja utilización de datos</p></div>
+        <div class="problem-item"><div class="dot"></div><p>Ausencia de estrategias digitales</p></div>
+        <div class="problem-item"><div class="dot"></div><p>Falta de automatización</p></div>
+        <div class="problem-item"><div class="dot"></div><p>Resistencia al cambio cultural</p></div>
+      </div>
+    </section>
+
+    <!-- Portafolio de servicios -->
+    <section>
+      <span class="section-tag">04 · Portafolio</span>
+      <h2 class="section-title">Servicios especializados</h2>
+      <p class="section-desc">Cada servicio se apoya en tecnologías habilitadoras (IA, Big Data, Cloud Computing, Blockchain, IoT, VR/AR) para resolver problemas específicos de transformación digital.</p>
+      <div class="services-grid">
+        <div class="svc-card">
+          <span class="svc-tech">ESTRATEGIA</span>
+          <h3>Consultoría Estratégica</h3>
+          <p>Auditoría digital y hoja de ruta tecnológica personalizada. Rediseñamos procesos corporativos bajo estándares ágiles para migrar operaciones al ecosistema digital sin fricciones.</p>
+        </div>
+        <div class="svc-card">
+          <span class="svc-tech">CC · BD</span>
+          <h3>Software & Arquitectura Cloud</h3>
+          <p>Ingeniería de software a la medida, plataformas SaaS escalables y migración de bases de datos a servicios cloud seguros, elásticos y con acceso remoto.</p>
+        </div>
+        <div class="svc-card">
+          <span class="svc-tech">IA</span>
+          <h3>Automatizaciones con IA</h3>
+          <p>Integración de modelos de IA, bots de soporte y automatización RPA de procesos operativos repetitivos, liberando tiempo del equipo humano.</p>
+        </div>
+        <div class="svc-card">
+          <span class="svc-tech">BD</span>
+          <h3>Analítica de Datos</h3>
+          <p>Análisis masivo de información de clientes y operaciones para transformar datos dispersos en decisiones de negocio accionables.</p>
+        </div>
+        <div class="svc-card">
+          <span class="svc-tech">BC</span>
+          <h3>Trazabilidad & Seguridad</h3>
+          <p>Soluciones basadas en blockchain para transparencia, seguridad y trazabilidad inmutable en procesos críticos de la organización.</p>
+        </div>
+        <div class="svc-card">
+          <span class="svc-tech">METODOLOGÍAS</span>
+          <h3>Adopción Cultural</h3>
+          <p>Capacitamos a colaboradores en metodologías ágiles y herramientas digitales, asegurando una transformación orgánica y sostenible.</p>
+        </div>
+        <div class="svc-card">
+          <span class="svc-tech">VR/AR</span>
+          <h3>Realidad Virtual & Aumentada</h3>
+          <p>Diseñamos experiencias inmersivas de realidad virtual y aumentada para capacitación de personal, showrooms virtuales y presentación interactiva de productos y servicios.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Propuesta de valor -->
+    <section>
+      <span class="section-tag">05 · Propuesta de valor</span>
+      <h2 class="section-title">¿Por qué elegir Nexora?</h2>
+      <div class="value-box">
+        <span class="tag">Propuesta de valor</span>
+        <blockquote>"Ayudamos a organizaciones de todos los tamaños a lograr una transformación digital medible mediante estrategia, automatización con IA y uso inteligente de datos."</blockquote>
+        <p class="example">Ejemplo aplicado: "Fortalecemos pequeñas empresas para competir en mercados digitales mediante estrategias de innovación, automatización y uso inteligente de datos."</p>
+      </div>
+    </section>
+
+    <!-- Diferenciadores -->
+    <section>
+      <span class="section-tag">06 · Elemento diferenciador</span>
+      <h2 class="section-title">Lo que nos distingue</h2>
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="icon">01</div>
+          <h4>Metodología ágil integral</h4>
+          <p>Descubrimiento, diseño, implementación y optimización en un solo acuerdo de trabajo.</p>
+        </div>
+        <div class="diff-card">
+          <div class="icon">02</div>
+          <h4>Tecnología + cultura</h4>
+          <p>No solo integramos sistemas: capacitamos equipos para una adopción real.</p>
+        </div>
+        <div class="diff-card">
+          <div class="icon">03</div>
+          <h4>Soporte continuo</h4>
+          <p>SLA con tiempos de resolución garantizados y soporte prioritario 24/7.</p>
+        </div>
+        <div class="diff-card">
+          <div class="icon">04</div>
+          <h4>Diagnóstico gratuito</h4>
+          <p>Auditoría inicial sin costo con 3 mejoras de alto impacto listas para implementar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Canales de contacto -->
+    <section style="border-bottom:none;">
+      <span class="section-tag">07 · Contacto</span>
+      <h2 class="section-title">Canales de contacto simulados</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="icon">✉️</div>
+          <h4>Correo corporativo</h4>
+          <p>contacto@nexora.com</p>
+        </div>
+        <div class="contact-card">
+          <div class="icon">💬</div>
+          <h4>WhatsApp directo</h4>
+          <p>Atención inmediata vía chat</p>
+        </div>
+        <div class="contact-card">
+          <div class="icon">🤖</div>
+          <h4>Asistente virtual</h4>
+          <p>Nexora AI Assistant en línea</p>
+        </div>
+        <div class="contact-card">
+          <div class="icon">📅</div>
+          <h4>Diagnóstico gratuito</h4>
+          <p>Agenda tu auditoría digital sin costo</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <strong>Nexora</strong> — Agencia de Transformación Digital · 2026
+    </footer>
+
+  </div>
+</body>
+</html>

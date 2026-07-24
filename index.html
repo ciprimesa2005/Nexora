@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora - Agencia de Transformación Digital</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section (Nike-inspired) -->
+  <header class="header" id="navbar">
+    <div class="logo">
+      <div class="logo-symbol">N</div>
+      <span class="logo-text">Nexora</span>
+    </div>
+    
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#services" class="nav-link">Servicios</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonios</a></li>
+        <li><a href="#about" class="nav-link">Qué Hacemos</a></li>
+        <li><a href="#pricing" class="nav-link">Planes</a></li>
+        <li><a href="#faq" class="nav-link">Soporte</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <button class="btn btn-outline" onclick="openModal('login-modal')">Iniciar Sesión</button>
+    </div>
+  </header>
+
+  <!-- Section 1: Hero Section (Nike Full-Bleed Campaign Style with Interactive Canvas) -->
+  <section class="hero-section" id="hero">
+    <!-- Full bleed interactive background canvas -->
+    <div class="hero-background-media">
+      <canvas id="hero-canvas"></canvas>
+      <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+      <span class="hero-tagline">Transformación Digital</span>
+      <h1 class="hero-title">
+        Evoluciona tu <span>Juego Digital</span>
+      </h1>
+      <p class="hero-desc">
+        Ayudamos a las organizaciones a optimizar procesos, modernizar sistemas e integrar inteligencia artificial. Es hora de romper límites y potenciar tus resultados.
+      </p>
+      
+      <!-- Newsletter / Subscription Form & CTA Row -->
+      <div class="hero-actions-row">
+        <form class="hero-subscription" onsubmit="event.preventDefault(); handleSubscribe('hero-email');">
+          <input type="email" id="hero-email" placeholder="Tu correo para un diagnóstico gratis" required>
+          <button type="submit" class="btn btn-primary">Comenzar</button>
+        </form>
+        <button class="btn btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Explorar Servicios</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Qué Hacemos (Nike Category Cards style with Futuristic Enhancements) -->
+  <section class="what-we-do" id="about">
+    <div class="section-header">
+      <span class="section-tag">Qué Hacemos</span>
+      <h2 class="section-title">Pilares de Innovación</h2>
+      <p class="section-desc">Diseñamos soluciones tecnológicas disruptivas enfocadas en impulsar el rendimiento de tu negocio.</p>
+    </div>
+
+    <div class="do-grid">
+      <!-- Card 1: Estrategia -->
+      <div class="do-card">
+        <div class="do-card-bg"></div>
+        <span class="do-card-tag">ESTRATEGIA</span>
+        <div class="do-card-content">
+          <div class="do-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.25z"/></svg>
+          </div>
+          <h3 class="do-title">Estrategia Digital</h3>
+          <p class="do-text">Analizamos y diseñamos una hoja de ruta tecnológica personalizada para migrar tus operaciones al ecosistema digital sin fricciones.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: Desarrollo -->
+      <div class="do-card">
+        <div class="do-card-bg"></div>
+        <span class="do-card-tag">DESARROLLO</span>
+        <div class="do-card-content">
+          <div class="do-icon">
+            <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+          </div>
+          <h3 class="do-title">SaaS & Nube</h3>
+          <p class="do-text">Construimos plataformas de software escalables y arquitecturas cloud optimizadas para soportar el crecimiento de tu empresa.</p>
+        </div>
+      </div>
+
+      <!-- Card 3: Optimización -->
+      <div class="do-card">
+        <div class="do-card-bg"></div>
+        <span class="do-card-tag">IA & RPA</span>
+        <div class="do-card-content">
+          <div class="do-icon">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+          </div>
+          <h3 class="do-title">Automatización</h3>
+          <p class="do-text">Liberamos el tiempo de tu equipo automatizando tareas repetitivas y flujos complejos con bots inteligentes y RPA.</p>
+        </div>
+      </div>
+
+      <!-- Card 4: Cultura -->
+      <div class="do-card">
+        <div class="do-card-bg"></div>
+        <span class="do-card-tag">METODOLOGÍAS</span>
+        <div class="do-card-content">
+          <div class="do-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <h3 class="do-title">Adopción Cultural</h3>
+          <p class="do-text">Capacitamos a tus colaboradores en metodologías ágiles y herramientas digitales para asegurar una transformación orgánica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Acuerdo de Trabajo (Bold horizontal workflow steps) -->
+  <section class="timeline-section" id="workspace">
+    <div class="section-header">
+      <span class="section-tag">Metodología</span>
+      <h2 class="section-title">Acuerdo de Trabajo</h2>
+      <p class="section-desc">Estructuramos cada fase de colaboración de manera ágil e iterativa para garantizar resultados sin sorpresas.</p>
+    </div>
+
+    <div class="timeline">
+      <!-- Step 1 -->
+      <div class="timeline-item active">
+        <div class="timeline-num">01</div>
+        <div class="timeline-card">
+          <h3 class="timeline-title">Descubrimiento</h3>
+          <p class="timeline-text">Analizamos en profundidad las operaciones e infraestructuras de tu organización para identificar fugas de rendimiento.</p>
+        </div>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="timeline-item">
+        <div class="timeline-num">02</div>
+        <div class="timeline-card">
+          <h3 class="timeline-title">Diseño de Acuerdo</h3>
+          <p class="timeline-text">Definimos los objetivos clave (SLA), alcances de software, metodologías ágiles y calendarios de entrega.</p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="timeline-item">
+        <div class="timeline-num">03</div>
+        <div class="timeline-card">
+          <h3 class="timeline-title">Implementación</h3>
+          <p class="timeline-text">Desplegamos las tecnologías de manera modular (Sprints) y realizamos capacitaciones intensivas a tus equipos.</p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="timeline-item">
+        <div class="timeline-num">04</div>
+        <div class="timeline-card">
+          <h3 class="timeline-title">Optimización</h3>
+          <p class="timeline-text">Monitoreamos el éxito de las integraciones con analíticas en tiempo real y aplicamos soporte correctivo y mejoras continuas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Catálogo de Servicios (Showcase product grids) -->
+  <section class="services-section" id="services">
+    <div class="section-header">
+      <span class="section-tag">Servicios</span>
+      <h2 class="section-title">Soluciones Especializadas</h2>
+      <p class="section-desc">Selecciona la solución que necesitas para llevar las capacidades de tu empresa al siguiente nivel.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-item" id="service-consulting">
+        <div class="service-img-mock">
+          <div class="service-img-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </div>
+        </div>
+        <div class="service-content">
+          <h3 class="service-title">Consultoría Estratégica</h3>
+          <p class="service-text">Planes de acción y consultorías dirigidas a rediseñar procesos corporativos bajo estándares ágiles.</p>
+          <a href="#pricing" class="service-btn">
+            Ver planes
+            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-item" id="service-cloud">
+        <div class="service-img-mock">
+          <div class="service-img-icon">
+            <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/></svg>
+          </div>
+        </div>
+        <div class="service-content">
+          <h3 class="service-title">Software & Arquitectura Cloud</h3>
+          <p class="service-text">Ingeniería de software a la medida y migración de base de datos a servicios cloud seguros y elásticos.</p>
+          <a href="#pricing" class="service-btn">
+            Ver planes
+            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-item" id="service-automation">
+        <div class="service-img-mock">
+          <div class="service-img-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"/></svg>
+          </div>
+        </div>
+        <div class="service-content">
+          <h3 class="service-title">Automatizaciones con IA</h3>
+          <p class="service-text">Integración de modelos GPT, bots de soporte de primera línea y automatización RPA de procesos operativos.</p>
+          <a href="#pricing" class="service-btn">
+            Ver planes
+            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Bottom Selector Bar (Audi-inspired selector toolbar) -->
+  <div class="bottom-selector-bar" id="audi-selector-bar">
+    <div class="selector-left">
+      <span class="selector-label">Categorías:</span>
+      <div class="selector-items-container">
+        <button class="selector-item-btn active" onclick="selectServicePreview('consulting')">Consultoría</button>
+        <button class="selector-item-btn" onclick="selectServicePreview('cloud')">Software y Cloud</button>
+        <button class="selector-item-btn" onclick="selectServicePreview('automation')">Automatización</button>
+      </div>
+    </div>
+    <div class="selector-right">
+      <span class="selector-preview-text" id="selector-preview-desc">
+        Ruta estratégica personalizada para alinear tecnología y negocio.
+      </span>
+      <a href="#support" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Consultar</a>
+    </div>
+  </div>
+
+  <!-- Section 5: Suscripciones & Planes (Pricing) -->
+  <section class="pricing-section" id="pricing">
+    <div class="section-header">
+      <span class="section-tag">Suscripciones</span>
+      <h2 class="section-title">Planes Disponibles</h2>
+      <p class="section-desc">Selecciona una modalidad mensual o anual y obtén soporte técnico continuo.</p>
+    </div>
+
+    <!-- Toggle switch Monthly / Annual -->
+    <div class="pricing-toggle-container">
+      <span class="pricing-label active" id="label-monthly" onclick="togglePricing(false)">Mensual</span>
+      <div class="toggle-switch" id="pricing-toggle" onclick="togglePricing()">
+        <div class="toggle-circle"></div>
+      </div>
+      <span class="pricing-label" id="label-annual" onclick="togglePricing(true)">Anual <span style="color:var(--color-blue); font-size:0.8rem; font-weight:900;">(-20%)</span></span>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Tier 1 -->
+      <div class="price-card">
+        <h3 class="price-tier">Plan Startup</h3>
+        <div class="price-amount" id="price-startup">
+          $499<span class="price-period">/mes</span>
+        </div>
+        <ul class="price-features">
+          <li class="price-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Auditoría digital básica
+          </li>
+          <li class="price-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Hasta 2 automatizaciones
+          </li>
+          <li class="price-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Soporte técnico por correo
+          </li>
+        </ul>
+        <button class="btn btn-outline price-btn" onclick="showNotification('Solicitud de Plan Startup enviada.')">Elegir Plan</button>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="price-card featured">
+        <h3 class="price-tier">Plan Corporate</h3>
+        <div class="price-amount" id="price-corporate">
+          $1,299<span class="price-period">/mes</span>
+        </div>
+        <ul class="price-features">
+          <li class="price-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Hoja de ruta estratégica completa
+          </li>
+          <li class="price-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            SaaS & Nube Dedicada
+          </li>
+          <li class="price-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Bots y Automatizaciones con IA
+          </li>
+          <li class="price-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Soporte técnico prioritario 24/7
+          </li>
+        </ul>
+        <button class="btn btn-primary price-btn" onclick="showNotification('Solicitud de Plan Corporate enviada.')">Elegir Plan</button>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="price-card">
+        <h3 class="price-tier">Plan Enterprise</h3>
+        <div class="price-amount" id="price-enterprise">
+          $2,999<span class="price-period">/mes</span>
+        </div>
+        <ul class="price-features">
+          <li class="price-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Transformación organizacional a escala
+          </li>
+          <li class="price-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Integración completa con ERP/CRM
+          </li>
+          <li class="price-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Capacitación a equipos y soporte in-situ
+          </li>
+          <li class="price-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Administrador técnico asignado
+          </li>
+        </ul>
+        <button class="btn btn-outline price-btn" onclick="showNotification('Solicitud de Plan Enterprise enviada.')">Elegir Plan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Servicio al Cliente & FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="section-header">
+      <span class="section-tag">Soporte Técnico</span>
+      <h2 class="section-title">Canales de Servicio</h2>
+      <p class="section-desc">Resuelve tus inquietudes de inmediato o contacta con el equipo de ingeniería.</p>
+    </div>
+
+    <div class="support-container" id="support">
+      
+      <!-- FAQ Accordion -->
+      <div class="faq-list">
+        <h3 class="form-title">Preguntas Frecuentes</h3>
+        
+        <!-- Accordion Item 1 -->
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleAccordion(this)">
+            ¿Qué es el diagnóstico digital inicial?
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-content">
+              Es una auditoría técnica sin costo sobre tus flujos de trabajo e infraestructuras actuales. Te entregaremos un reporte ejecutivo con 3 mejoras de alto impacto listas para implementarse.
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 2 -->
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleAccordion(this)">
+            ¿Cuál es el tiempo promedio de despliegue?
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-content">
+              Las consultorías de procesos toman de 3 a 5 semanas. El desarrollo e integración de software SaaS se realiza por sprints quincenales, completando versiones operativas en un plazo de 2 a 4 meses.
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 3 -->
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleAccordion(this)">
+            ¿Cómo funciona el SLA de soporte?
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-content">
+              Garantizamos respuestas técnicas inmediatas. Dependiendo del plan de suscripción contratado, obtienes canales de soporte dedicados con plazos de resolución garantizados de 24h, 4h o asistencia prioritaria 24/7.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support Form Card -->
+      <div class="support-card">
+        <h3 class="form-title">Contactar Soporte</h3>
+        
+        <form onsubmit="event.preventDefault(); handleFormSubmit();">
+          <div class="form-group">
+            <label class="form-label" for="support-name">Nombre</label>
+            <input type="text" id="support-name" class="form-input" placeholder="Tu nombre completo" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="support-email">Correo Corporativo</label>
+            <input type="email" id="support-email" class="form-input" placeholder="correo@tuempresa.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="support-message">Mensaje</label>
+            <textarea id="support-message" class="form-input" style="min-height: 100px; resize: vertical;" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensaje</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 7: Testimonios -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="section-header">
+      <span class="section-tag">Testimonios</span>
+      <h2 class="section-title">Historias de Éxito</h2>
+      <p class="section-desc">Descubre cómo los líderes de distintas industrias aceleraron sus resultados con Nexora.</p>
+    </div>
+
+    <div class="testimon-grid">
+      <!-- Testimonial 1 -->
+      <div class="testimon-card">
+        <p class="testimon-quote">
+          "Gracias a la automatización de procesos de Nexora, redujimos el tiempo de facturación a la mitad. Su soporte post-despliegue es insuperable."
+        </p>
+        <div class="testimon-client">
+          <div class="testimon-avatar">LM</div>
+          <div class="client-info">
+            <span class="client-name">Laura Mendoza</span>
+            <span class="client-company">CFO, Soluciones Logísticas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimon-card">
+        <p class="testimon-quote">
+          "El desarrollo de nuestra nueva plataforma cloud fue ágil e impecable. Nexora comprendió a la perfección nuestro modelo de negocio."
+        </p>
+        <div class="testimon-client">
+          <div class="testimon-avatar">AC</div>
+          <div class="client-info">
+            <span class="client-name">Andrés Castro</span>
+            <span class="client-company">CEO, Innova Retail</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimon-card">
+        <p class="testimon-quote">
+          "No solo integraron sistemas, capacitaron a nuestro personal y transformaron nuestra cultura operativa en hábitos digitales ágiles."
+        </p>
+        <div class="testimon-client">
+          <div class="testimon-avatar">SR</div>
+          <div class="client-info">
+            <span class="client-name">Sofia Restrepo</span>
+            <span class="client-company">Directora de Operaciones, FinTech Col</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Chatbot Widget (Nexora AI Assistant) -->
+  <div class="chatbot-widget" id="chatbot">
+    <button class="chatbot-toggle" id="chatbot-toggle" onclick="toggleChatbot()">
+      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+    </button>
+    
+    <div class="chat-window" id="chat-window">
+      <div class="chat-header">
+        <div class="chat-header-avatar">N</div>
+        <div class="chat-header-info">
+          <span class="chat-header-title">Nexora AI Assistant</span>
+          <span class="chat-header-status">En línea</span>
+        </div>
+        <button class="chat-close-btn" onclick="toggleChatbot()">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+      
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-bubble bot">
+          ¡Hola! Soy el asistente digital de Nexora. ¿En qué puedo ayudarte hoy?
+        </div>
+      </div>
+      
+      <div class="chat-quick-replies" id="chat-quick-replies">
+        <button class="chat-reply-btn" onclick="handleChatReply('planes')">Tipos de Planes</button>
+        <button class="chat-reply-btn" onclick="handleChatReply('asesoria')">Asesoría Digital</button>
+        <button class="chat-reply-btn" onclick="handleChatReply('whatsapp')">WhatsApp Directo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-logo-desc">
+        <div class="logo">
+          <div class="logo-symbol">N</div>
+          <span class="logo-text" style="color:var(--color-white);">Nexora</span>
+        </div>
+        <p class="footer-desc">
+          Nexora es una consultora digital dedicada a construir capacidades tecnológicas para alinear procesos, software y cultura operativa con el futuro.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="footer-links-title">Enlaces</h3>
+        <ul class="footer-links-list">
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#testimonials">Testimonios</a></li>
+          <li><a href="#about">Qué Hacemos</a></li>
+          <li><a href="#pricing">Planes de Suscripción</a></li>
+          <li><a href="#faq">Soporte Técnico</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer-links-title">Guía de Prompts (AI Images)</h3>
+        <ul class="footer-links-list" style="gap:0.5rem; font-size:0.8rem; color:var(--text-muted);">
+          <li>
+            <strong>Hero Futurista (Integrado)</strong>:
+            <span style="font-style:italic;">A futuristic, high-tech conceptual representation of digital transformation. A glowing holographic grid with abstract network connections, neon blue and purple...</span>
+          </li>
+          <li>
+            <strong>Estrategia</strong>:
+            <span style="font-style:italic;">Close-up photo of glass board filled with colorful post-it notes, schematics, soft focus, bright workspace...</span>
+          </li>
+          <li>
+            <strong>Desarrollo</strong>:
+            <span style="font-style:italic;">Programmer's hands typing on mechanical keyboard, dual screen code editor, purple ambient glow...</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Nexora. Todos los derechos reservados.</span>
+      <span>Diseñado bajo la influencia de la estética funcional deportiva.</span>
+    </div>
+  </footer>
+
+  <!-- Modal: Iniciar Sesión (Login Modal) -->
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('login-modal')">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+      <h3 class="form-title" style="text-align: center; margin-bottom: 2rem;">Acceso a tu Cuenta</h3>
+      
+      <form onsubmit="event.preventDefault(); handleLogin();">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Correo Corporativo</label>
+          <input type="email" id="login-email" class="form-input" placeholder="correo@tuempresa.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="login-pass">Contraseña</label>
+          <input type="password" id="login-pass" class="form-input" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Iniciar Sesión</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Alert System Container -->
+  <div class="alert-container" id="alert-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
