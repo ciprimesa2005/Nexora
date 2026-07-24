@@ -363,6 +363,17 @@ section {
   gap: 1rem;
 }
 
+.do-portfolio-cta {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.do-portfolio-cta p {
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+}
+
 .do-card {
   height: 480px;
   position: relative;
