@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexora — Encuesta de Madurez Digital</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="survey.css">
+</head>
+<body>
+
+  <header class="header" id="navbar">
+    <div class="logo">
+      <div class="logo-symbol">N</div>
+      <span class="logo-text">Nexora</span>
+    </div>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html#services" class="nav-link">Servicios</a></li>
+        <li><a href="index.html#about" class="nav-link">Qué Hacemos</a></li>
+        <li><a href="encuesta.html" class="nav-link">Madurez Digital</a></li>
+        <li><a href="resultados.html" class="nav-link">Resultados</a></li>
+      </ul>
+    </nav>
+    <div>
+      <a href="index.html" class="btn btn-outline">Volver al sitio</a>
+    </div>
+  </header>
+
+  <section class="survey-hero">
+    <span class="section-tag">Diagnóstico Gratuito</span>
+    <h1 class="survey-title">Cuestionario de Madurez Digital</h1>
+    <p class="survey-desc">
+      Responde estas preguntas para conocer el nivel de madurez digital de tu empresa y que Nexora te ayude a diseñar el plan de transformación adecuado.
+      Cada afirmación se califica de <strong>1 a 5</strong>: 1 = No existe/Nunca · 2 = Inicial · 3 = En desarrollo · 4 = Consolidado · 5 = Totalmente logrado/Siempre.
+    </p>
+  </section>
+
+  <form class="survey-form" id="survey-form">
+
+    <!-- Datos generales -->
+    <div class="survey-card">
+      <h2 class="survey-card-title">Datos generales</h2>
+
+      <div class="form-group">
+        <label class="form-label" for="q1">1. Nombre de la empresa</label>
+        <input type="text" id="q1" class="form-input" required>
+      </div>
+
+      <div class="survey-row">
+        <div class="form-group">
+          <label class="form-label" for="q2">2. Ciudad / País</label>
+          <input type="text" id="q2" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="q3">3. Sector económico</label>
+          <input type="text" id="q3" class="form-input" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">4. Número de empleados</label>
+        <div class="option-pills" data-name="q4" role="radiogroup">
+          <label class="pill"><input type="radio" name="q4" value="1-10" required> 1-10</label>
+          <label class="pill"><input type="radio" name="q4" value="11-50"> 11-50</label>
+          <label class="pill"><input type="radio" name="q4" value="51-200"> 51-200</label>
+          <label class="pill"><input type="radio" name="q4" value="Más de 200"> Más de 200</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="q5">5. Nombre y cargo de quien responde</label>
+        <input type="text" id="q5" class="form-input" required>
+      </div>
+    </div>
+
+    <!-- Likert -->
+    <div class="survey-card">
+      <h2 class="survey-card-title">Nivel de madurez digital</h2>
+      <p class="survey-card-desc">Califica cada afirmación de 1 (No existe/Nunca) a 5 (Totalmente logrado/Siempre).</p>
+
+      <div class="likert-list" id="likert-list"></div>
+    </div>
+
+    <!-- Obstáculo -->
+    <div class="survey-card">
+      <h2 class="survey-card-title">16. ¿Cuál es el mayor obstáculo para avanzar en la transformación digital?</h2>
+      <div class="option-list" data-name="q16">
+        <label class="option-item"><input type="radio" name="q16" value="Falta de presupuesto" required> Falta de presupuesto</label>
+        <label class="option-item"><input type="radio" name="q16" value="Falta de conocimiento/capacitación"> Falta de conocimiento/capacitación</label>
+        <label class="option-item"><input type="radio" name="q16" value="Resistencia al cambio del equipo"> Resistencia al cambio del equipo</label>
+        <label class="option-item"><input type="radio" name="q16" value="Falta de claridad estratégica"> Falta de claridad estratégica</label>
+        <label class="option-item option-other">
+          <input type="radio" name="q16" value="Otro" id="q16-otro-radio"> Otro:
+          <input type="text" id="q16-otro-texto" class="form-input option-other-input" placeholder="Especifica">
+        </label>
+      </div>
+    </div>
+
+    <!-- Tecnologías -->
+    <div class="survey-card">
+      <h2 class="survey-card-title">17. ¿Qué tecnologías usa actualmente la empresa?</h2>
+      <p class="survey-card-desc">Marca todas las que apliquen.</p>
+      <div class="option-list" data-name="q17">
+        <label class="option-item"><input type="checkbox" name="q17" value="Redes sociales / Página web"> Redes sociales / Página web</label>
+        <label class="option-item"><input type="checkbox" name="q17" value="ERP / CRM"> ERP / CRM</label>
+        <label class="option-item"><input type="checkbox" name="q17" value="Inteligencia artificial"> Inteligencia artificial</label>
+        <label class="option-item"><input type="checkbox" name="q17" value="Analítica de datos"> Analítica de datos</label>
+        <label class="option-item"><input type="checkbox" name="q17" value="Ninguna"> Ninguna</label>
+      </div>
+    </div>
+
+    <div class="survey-submit-row">
+      <button type="submit" class="btn btn-primary">Ver mi resultado</button>
+    </div>
+  </form>
+
+  <script src="survey.js"></script>
+</body>
+</html>
