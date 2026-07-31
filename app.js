@@ -200,10 +200,10 @@ function handleSubscribe(inputId) {
   const email = emailInput.value.trim();
   
   // Save subscription email in localStorage
-  let subscriptions = JSON.parse(localStorage.getItem('nexora_subscriptions') || '[]');
+  let subscriptions = JSON.parse(localStorage.getItem('tantoto_subscriptions') || '[]');
   if (!subscriptions.includes(email)) {
     subscriptions.push(email);
-    localStorage.setItem('nexora_subscriptions', JSON.stringify(subscriptions));
+    localStorage.setItem('tantoto_subscriptions', JSON.stringify(subscriptions));
   }
 
   showNotification(`¡Suscripción exitosa! Hemos enviado un diagnóstico gratuito a ${email}.`);
@@ -216,9 +216,9 @@ function handleFormSubmit() {
   const message = document.getElementById('support-message').value.trim();
 
   // Save support ticket mock
-  let tickets = JSON.parse(localStorage.getItem('nexora_support_tickets') || '[]');
+  let tickets = JSON.parse(localStorage.getItem('tantoto_support_tickets') || '[]');
   tickets.push({ name, email, message, date: new Date().toISOString() });
-  localStorage.setItem('nexora_support_tickets', JSON.stringify(tickets));
+  localStorage.setItem('tantoto_support_tickets', JSON.stringify(tickets));
 
   showNotification(`¡Mensaje recibido! Gracias ${name}. Nos pondremos en contacto contigo pronto.`);
   
@@ -232,7 +232,7 @@ function handleLogin() {
   const email = document.getElementById('login-email').value.trim();
   
   // Save mock login state in localStorage
-  localStorage.setItem('nexora_user_session', JSON.stringify({ email, loginTime: new Date().toISOString() }));
+  localStorage.setItem('tantoto_user_session', JSON.stringify({ email, loginTime: new Date().toISOString() }));
   
   closeModal('login-modal');
   showNotification(`Bienvenido de nuevo, has iniciado sesión como ${email}.`);
@@ -280,7 +280,7 @@ function handleChatReply(replyType) {
   
   // Define reply texts
   const userTexts = {
-    planes: "Quiero saber más sobre los planes de Nexora.",
+    planes: "Quiero saber más sobre los planes de Tantoto.",
     asesoria: "Me gustaría solicitar una asesoría digital.",
     whatsapp: "Necesito soporte extra por WhatsApp."
   };
@@ -324,7 +324,7 @@ function handleChatReply(replyType) {
         2. O escríbenos a través del formulario de contacto en la sección de Soporte.`;
     } else if (replyType === 'whatsapp') {
       botResponse = `Si tienes una consulta compleja o necesitas soporte extra inmediato, presiona el botón a continuación para hablar directamente con un especialista en nuestro canal de WhatsApp de Soporte:<br>
-        <a href="https://wa.me/573000000000?text=Hola%20Nexora,%20necesito%20asesoria%20digital" target="_blank" class="chat-whatsapp-btn">
+        <a href="https://wa.me/573000000000?text=Hola%20Tantoto,%20necesito%20asesoria%20digital" target="_blank" class="chat-whatsapp-btn">
           <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.81 9.81 0 0 0 12.04 2zm5.72 13.91c-.24.68-1.24 1.24-1.72 1.32-.48.08-.96.16-3.23-.74-2.9-1.15-4.74-4.1-4.9-4.31-.16-.21-1.3-1.73-1.3-3.3 0-1.57.81-2.33 1.09-2.61.28-.28.6-.36.81-.36H9.4c.2 0 .48 0 .73.59.24.6.85 2.09.93 2.25.08.16.14.36.04.56-.1.2-.16.32-.32.51-.16.19-.34.42-.48.57-.16.16-.33.34-.14.67.19.32.85 1.41 1.83 2.29.98.88 1.8-1.17 2.1-1.28.3-.12.59-.08.81.08.21.16 1.37.64 1.61.76.24.12.4.18.46.28.06.12.06.68-.18 1.36z"/></svg>
           Chat de WhatsApp
         </a>`;
