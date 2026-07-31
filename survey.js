@@ -1,7 +1,7 @@
-// Tantoto — Cuestionario de Madurez Digital
-// Storage: localStorage key "tantoto_encuestas" (array of response records)
+// Aureon — Cuestionario de Madurez Digital
+// Storage: localStorage key "aureon_encuestas" (array of response records)
 
-const STORAGE_KEY = 'tantoto_encuestas';
+const STORAGE_KEY = 'aureon_encuestas';
 
 const LIKERT_QUESTIONS = [
   { id: 'q6', text: '6. La empresa cuenta con una estrategia clara de transformación digital, en implementación y con seguimiento.' },
@@ -105,7 +105,7 @@ function initSurveyForm() {
     };
 
     saveResponse(record);
-    sessionStorage.setItem('tantoto_last_result', String(record.id));
+    sessionStorage.setItem('aureon_last_result', String(record.id));
     window.location.href = 'resultados.html';
   });
 }
@@ -121,7 +121,7 @@ function nivelBarClass(key) {
 function renderLastResultBanner(data) {
   const el = document.getElementById('last-result-banner');
   if (!el) return;
-  const lastId = sessionStorage.getItem('tantoto_last_result');
+  const lastId = sessionStorage.getItem('aureon_last_result');
   if (!lastId) return;
   const record = data.find(r => String(r.id) === lastId);
   if (!record) return;
@@ -131,7 +131,7 @@ function renderLastResultBanner(data) {
       <div class="kicker">Resultado de ${record.empresa || 'tu empresa'}</div>
       <div class="score">${record.total}/50</div>
       <div class="nivel">${nivel.label}</div>
-      <p class="rec">${nivel.desc} Tantoto recomienda cruzar este resultado con el obstáculo señalado (“${record.obstaculo}”) para priorizar el plan de acción.</p>
+      <p class="rec">${nivel.desc} Aureon recomienda cruzar este resultado con el obstáculo señalado (“${record.obstaculo}”) para priorizar el plan de acción.</p>
     </div>
   `;
 }
